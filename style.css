@@ -32,7 +32,7 @@ body {
 
 /* Responsive font scaling */
 body {
-    font-size: clamp(23px, 1vw + 0.5rem, 35px);
+    font-size: clamp(20px, 1vw + 0.5rem, 30px);
     line-height: var(--line-height-default);
     color: var(--color-text);
 }
@@ -75,7 +75,7 @@ body::-webkit-scrollbar {
 }
 
 /* Larger Screens */
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 780px) {
     .page-layout {
         max-width: 800px;
     }
@@ -107,6 +107,8 @@ h1,
 h2,
 h3 {
     font-weight: 400;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 /* Title Styles */
