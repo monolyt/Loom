@@ -1,109 +1,107 @@
-/* Hide scrollbar for Chrome, Safari and Opera */
-/* Hide scrollbar for Chrome, Safari, and Opera */
-html.editing,
-body.editing {
-    overflow: hidden;
-    /* Prevent scrolling altogether */
-}
+/* ---------------------------------------------------
+   GLOBAL RESETS & BASE STYLES
+--------------------------------------------------- */
 
-/* For specific scrollable elements, consider targeting them individually */
-html.editing::-webkit-scrollbar,
-body.editing::-webkit-scrollbar {
-    display: none !important;
-}
-
-/* Hide scrollbar for IE, Edge, and Firefox */
-html.editing,
-body.editing {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-/* Optional - Ensure this applies to specific scrollable elements if needed */
-.editing .scrollable {
-    overflow: hidden;
-    /* Prevents overflow and scrollbar appearance */
-}
-
-/* Ensure these rules don't conflict with other visual effects */
-body.wf-initial-load *,
-html.wf-initial-load * {
-    color: transparent !important;
-    -webkit-text-stroke: 0px transparent;
-    text-shadow: none !important;
-}
-
-html.wf-initial-load hr {
-    background: none !important;
-}
-
-
-/*  Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
-
+/* Root variables */
 :root {
-    --color-text: #000000;
+    --color-text: #000;
     --color-background: #ecebea;
-    --font-family: serif;
-    /* Mobile Typography */
+    --font-family: 'EB Garamond', serif;
     --line-height-default: 1.4;
     --mobile-padding-offset: 0.5;
-    --font-family: 'EB Garamond', monospace;
 }
 
+/* Base HTML and body styles */
+html,
 body {
-    font-size: clamp(23px, 1vw + 0.5rem, 35px);
-    font-optical-sizing: auto;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
     width: 100%;
     height: 100%;
     background-color: var(--color-background);
+    font-family: var(--font-family);
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
+
+/* Responsive font scaling */
+body {
+    font-size: clamp(23px, 1vw + 0.5rem, 35px);
+    line-height: var(--line-height-default);
+    color: var(--color-text);
+}
+
+/* ---------------------------------------------------
+   SCROLLBAR HIDING
+--------------------------------------------------- */
+
+html,
+body {
+    /* Keep scrolling instead of hidden */
+    overflow: auto;
+    /* IE/Edge */
+    -ms-overflow-style: none;
+    /* For Firefox */
+    scrollbar-width: none;
+}
+
+/* For Chrome, Safari, Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* ---------------------------------------------------
+   LAYOUT
+--------------------------------------------------- */
 
 .page-layout {
     max-width: 100%;
-    font-family: var(--font-family);
+    margin: 0 auto;
 }
 
+/* Main content container */
 .page-content {
-    padding-top: calc(3rem * var(--mobile-padding-offset));
-    padding-right: calc(3rem * var(--mobile-padding-offset));
-    padding-bottom: calc(3rem * var(--mobile-padding-offset));
-    padding-left: calc(8rem * var(--mobile-padding-offset));
+    padding: calc(3rem * var(--mobile-padding-offset)) calc(3rem * var(--mobile-padding-offset)) calc(3rem * var(--mobile-padding-offset)) calc(8rem * var(--mobile-padding-offset));
     overflow-wrap: break-word;
-}
-
-.page-content {
+    /* Additional bottom space */
     padding-bottom: 4em;
 }
+
+/* Larger Screens */
+@media screen and (min-width: 950px) {
+    .page-layout {
+        max-width: 1200px;
+    }
+
+    body {
+        font-size: clamp(20px, 1vw + 0.5rem, 28px);
+    }
+}
+
+/* ---------------------------------------------------
+   TYPOGRAPHY
+--------------------------------------------------- */
 
 h1,
 h2,
 h3 {
-    font-weight: normal;
+    font-weight: 400;
 }
 
-h1 {
-    text-transform: capitalize;
-}
-
+/* Title Styles */
 h2.pretitle {
     margin-bottom: 15vh;
 }
 
 h1.title {
+    text-transform: capitalize;
     font-size: 4em;
     line-height: 1.2;
     margin-bottom: 2rem;
@@ -113,14 +111,17 @@ h2.subtitle {
     margin-bottom: 20vh;
 }
 
+/* Indent new paragraphs */
 .text-body p:not(:first-of-type)::before {
-    content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0"
+    content: "\00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0 \00a0";
 }
 
-.text-body {
-    line-height: var(--line-height-default);
+/* Space paragraphs */
+.text-body p {
+    margin-bottom: 0.5rem;
 }
 
+/* Text Highlight */
 span.highlighted {
     margin: 6rem 0 2rem 0;
     display: inline-block;
@@ -130,15 +131,4 @@ span.highlighted {
     will-change: filter;
     font-size: 1.2em;
     background: var(--color-background);
-}
-
-@media screen and (min-width: 950px) {
-    body {
-        font-size: clamp(20px, 1vw + 0.5rem, 28px);
-    }
-
-    .page-layout {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
 }
