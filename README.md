@@ -3,7 +3,7 @@
 **Melville** is a clean and timeless HTML/CSS template inspired by classic literature. Perfect for minimal blogs, portfolios, or projects that prioritize thoughtful design and content.
 
 ## Screenshot
-![Screenshot](screenshot.jpg)
+![Screenshot](melville-image.png)
 
 ## Features
 
@@ -13,6 +13,6 @@
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/melville.git
+1. Download the `index.html` and `style.css` files from the repository.
+2. Replace the placeholder content in `index.html` with your own content.
+3. Upload both files to the server where you want to host your site.
