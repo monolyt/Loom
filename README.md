@@ -2,8 +2,8 @@
 
 **Melville** is a clean and timeless HTML/CSS template inspired by classic literature. Perfect for minimal blogs, portfolios, or projects that prioritize thoughtful design and content.
 
-## Screenshot
-![Screenshot](melville-image.png)
+## Image
+![Melville](melville-image.png)
 
 ## Features
 
